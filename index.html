@@ -32,6 +32,7 @@
                 <button class="btn btn-primary" onclick="addTask()">Add</button>
             </div>
             <ul id="taskList" class="list-group"></ul>
+            <button class="btn btn-danger mt-3 w-100" onclick="deleteAllTasks()">Delete All</button>
         </div>
     </div>
 
@@ -106,6 +107,13 @@
                 let li = button.parentElement.parentElement;
                 li.remove();
                 saveTasks();
+            }
+        }
+
+        function deleteAllTasks() {
+            if (confirm("Are you sure you want to delete all tasks?")) {
+                document.getElementById("taskList").innerHTML = "";
+                localStorage.removeItem("tasks");
             }
         }
     </script>
