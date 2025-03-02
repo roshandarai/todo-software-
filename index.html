@@ -95,10 +95,12 @@
         function editTask(button) {
             let li = button.parentElement.parentElement;
             let taskText = li.querySelector(".task-text");
-            let newText = prompt("Edit your task", taskText.textContent);
-            if (newText !== null && newText.trim() !== "") {
-                taskText.textContent = newText.trim();
-                saveTasks();
+            if (confirm("Do you want to edit this task?")) {
+                let newText = prompt("Edit your task", taskText.textContent);
+                if (newText !== null && newText.trim() !== "") {
+                    taskText.textContent = newText.trim();
+                    saveTasks();
+                }
             }
         }
 
